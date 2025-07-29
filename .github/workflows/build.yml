@@ -9,47 +9,33 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build app for Windows
-        run: npm run build
-
-      - name: Upload .exe to GitHub Release
-        uses: softprops/action-gh-release@v1
+      - run: npm install
+      - run: npm run build -- --win
+      - run: ls -R dist
+      - uses: softprops/action-gh-release@v1
         with:
           files: dist/**/*.exe
+          generate_release_notes: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build app for Linux
-        run: npm run build
-
-      - name: Upload AppImage to GitHub Release
-        uses: softprops/action-gh-release@v1
+      - run: npm install
+      - run: npm run build -- --linux
+      - run: ls -R dist
+      - uses: softprops/action-gh-release@v1
         with:
           files: dist/**/*.AppImage
+          generate_release_notes: true
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
