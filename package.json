@@ -16,13 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Powerranger45/elephant_id_systems"
+    "url": "https://github.com/Powerranger45/siamese-elephant"
   },
   "build": {
     "appId": "com.elephantid.desktop",
     "productName": "Airavat V1",
     "publish": {
-      "provider": "github"
+      "provider": "github",
+      "releaseType": "release"
     },
     "directories": {
       "output": "dist"
