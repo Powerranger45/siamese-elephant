@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Distribution
+dist/
+
+# Node.js/Electron
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Streamlit
+/.streamlit/
+!/.streamlit/config.toml
+
+# Data and models
+data/
+models/
+*.pth
+*.h5
+*.ckpt
+
+# Output and archives
+*.zip
+*.tar
+*.tar.gz
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+
+python-backend/models/best_model.pth
