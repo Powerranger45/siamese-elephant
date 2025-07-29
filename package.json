@@ -50,9 +50,8 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "assets/icon.ico",
-      "sign": "echo 'Skipping Windows signing on Linux WSL'"
-    },
+      "icon": "assets/icon.ico"
+  },
     "mac": {
       "target": "dmg",
       "icon": "assets/icon.icns"
